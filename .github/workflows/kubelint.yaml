@@ -25,20 +25,13 @@ jobs:
         with:
           directory: ./k8s-sealed-secret
 
-      - name: Kustomize Build dev
-        uses: karancode/kustomize-github-action@v1.0.0
-        with:
-          kustomize_version: '5.0.4'
-          kustomize_build_dir: 'k8s/overlays/dev'
-          kustomize_comment: true
-        env:
-          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+      - name: Install Kustomize
+        run: |
+          KUSTOMIZE_VERSION=v5.0.4
+          curl -sL https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.6.0/kustomize_v5.6.0_linux_amd64.tar.gz -o kustomize.tar.gz
+          tar -xzf kustomize.tar.gz
+          chmod +x kustomize
 
-      - name: Kustomize Build dev
-        uses: karancode/kustomize-github-action@v1.0.0
-        with:
-          kustomize_version: '5.0.4'
-          kustomize_build_dir: 'k8s/overlays/prod'
-          kustomize_comment: true
-        env:
-          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+      - name: Run Kustomize Build
+        run: ./kustomize build k8s/overlays/dev
+
