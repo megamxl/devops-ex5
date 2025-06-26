@@ -24,3 +24,16 @@ jobs:
         uses: stackrox/kube-linter-action@v1
         with:
           directory: ./k8s-sealed-secret
+
+      - name: Install Kustomize
+        run: |
+          KUSTOMIZE_VERSION=v5.0.4
+          curl -sL https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.6.0/kustomize_v5.6.0_linux_amd64.tar.gz -o kustomize.tar.gz
+          tar -xzf kustomize.tar.gz
+          chmod +x kustomize
+
+      - name: Run Kustomize Build dev
+        run: ./kustomize build k8s/overlays/dev
+
+      - name: Run Kustomize Build prod
+        run: ./kustomize build k8s/overlays/prod
