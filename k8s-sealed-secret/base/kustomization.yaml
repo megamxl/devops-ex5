@@ -1,5 +1,4 @@
 resources:
   - deployment.yaml
   - service.yaml
-  - dummySecret.yaml
-#  - unsealed-secret.yaml
+  - unsealed-secret.yaml

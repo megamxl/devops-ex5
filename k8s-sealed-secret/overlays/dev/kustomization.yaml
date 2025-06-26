@@ -1,0 +1,10 @@
+resources:
+  - ../../base
+
+namespace: dev
+
+patches:
+  - path: replica-patch.yaml
+    target:
+      kind: Deployment
+      name: weather-api
