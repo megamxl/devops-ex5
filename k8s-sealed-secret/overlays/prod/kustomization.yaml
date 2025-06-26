@@ -1,7 +1,7 @@
 resources:
   - ../../base
 
-namespace: prod
+namespace: prod-sealed
 
 patchesStrategicMerge:
   - replica-patch.yaml
