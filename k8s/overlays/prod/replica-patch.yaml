@@ -4,3 +4,17 @@ metadata:
   name: weather-api
 spec:
   replicas: 5
+  template:
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - weather-api
+                topologyKey: kubernetes.io/hostname

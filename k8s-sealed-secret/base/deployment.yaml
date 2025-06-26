@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: weather-api
-          image: ghcr.io/megamxl/weather-redirect:latest
+          image: ghcr.io/megamxl/weather-redirect:v1
           ports:
             - containerPort: 8080
           env:
