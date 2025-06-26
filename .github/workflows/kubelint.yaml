@@ -32,6 +32,8 @@ jobs:
           tar -xzf kustomize.tar.gz
           chmod +x kustomize
 
-      - name: Run Kustomize Build
+      - name: Run Kustomize Build dev
         run: ./kustomize build k8s/overlays/dev
 
+      - name: Run Kustomize Build prod
+        run: ./kustomize build k8s/overlays/prod
