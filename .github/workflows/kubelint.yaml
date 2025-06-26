@@ -28,7 +28,7 @@ jobs:
       - name: Kustomize Build dev
         uses: karancode/kustomize-github-action@v1.0.0
         with:
-          kustomize_command: build k8s/overlays/dev
+          kustomize_command: build ./k8s/overlays/dev
 
       - name: Kustomize Build dev
         uses: karancode/kustomize-github-action@v1.0.0
