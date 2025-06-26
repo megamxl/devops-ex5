@@ -1,0 +1,26 @@
+name: Kube Linter
+
+on:
+  pull_request:
+    paths:
+      - '**/*.yaml'
+      - '**/*.yml'
+
+jobs:
+  kube-linter:
+    name: Run kube-linter
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run kube-linter
+        uses: stackrox/kube-linter-action@v1
+        with:
+          directory: ./k8s
+
+      - name: Run kube-linter
+        uses: stackrox/kube-linter-action@v1
+        with:
+          directory: ./k8s-sealed-secret
