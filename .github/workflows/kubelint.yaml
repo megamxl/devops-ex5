@@ -31,9 +31,6 @@ jobs:
           kustomize_version: '3.0.0'
           kustomize_build_dir: 'k8s/overlays/dev'
           kustomize_comment: true
-          kustomize_output_file: "gitops/rendered.yaml"
-          kustomize_build_options: "--load_restrictor none"
-          enable_alpha_plugins: true
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
 
@@ -43,8 +40,5 @@ jobs:
           kustomize_version: '3.0.0'
           kustomize_build_dir: 'k8s/overlays/prod'
           kustomize_comment: true
-          kustomize_output_file: "gitops/rendered.yaml"
-          kustomize_build_options: "--load_restrictor none"
-          enable_alpha_plugins: true
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
