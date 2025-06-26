@@ -4,7 +4,13 @@ metadata:
   name: weather-api
 spec:
   replicas: 5
+  selector:
+    matchLabels:
+      app: weather-api
   template:
+    metadata:
+      labels:
+        app: weather-api
     spec:
       affinity:
         podAntiAffinity:

@@ -4,3 +4,10 @@ metadata:
   name: weather-api
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: weather-api
+  template:
+    metadata:
+      labels:
+        app: weather-api
