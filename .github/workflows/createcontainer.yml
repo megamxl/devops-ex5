@@ -1,8 +1,6 @@
 on:
   push:
     branches: [ "main", "master" ]
-  pull_request:
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,7 +18,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: build image
         run: |
-          docker build -t ghcr.io/megamxl/weather-redirect:latest code
+          docker build -t ghcr.io/megamxl/weather-redirect:v1 code
       - name: push image
         run: |
-          docker push ghcr.io/megamxl/weather-redirect:latest
+          docker push ghcr.io/megamxl/weather-redirect:v1
