@@ -14,7 +14,18 @@ spec:
     spec:
       containers:
         - name: weather-api
+          securityContext:
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 5
           image: ghcr.io/megamxl/weather-redirect:v1
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
           ports:
             - containerPort: 8080
           env:
