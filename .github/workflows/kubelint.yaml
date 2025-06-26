@@ -28,7 +28,7 @@ jobs:
       - name: Kustomize Build dev
         uses: karancode/kustomize-github-action@v1.0.0
         with:
-          kustomize_version: '3.0.0'
+          kustomize_version: '5.0.4'
           kustomize_build_dir: 'k8s/overlays/dev'
           kustomize_comment: true
         env:
@@ -37,7 +37,7 @@ jobs:
       - name: Kustomize Build dev
         uses: karancode/kustomize-github-action@v1.0.0
         with:
-          kustomize_version: '3.0.0'
+          kustomize_version: '5.0.4'
           kustomize_build_dir: 'k8s/overlays/prod'
           kustomize_comment: true
         env:
